@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robohub - Connect. Learn. Compete.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #0a6e45;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #0a6e45;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #066d3a;
+        }
+        main {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0a6e45;
+            color: white;
+        }
+        form {
+            margin: 20px 0;
+        }
+        form input, form button {
+            padding: 8px;
+            margin: 5px 0;
+        }
+        form input {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Robohub</h1>
+        <p>Robohub is an online platform for robotics teams to share projects, track match rankings, and rent robotics equipment.</p>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#info">Information</a>
+        <a href="#rankings">Rankings</a>
+        <a href="#teams">Teams</a>
+        <a href="#events">Events</a>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>About Robohub</h2>
+            <p>Robohub is your go-to platform for connecting robotics teams. Share your projects, track scores, and access essential resources to excel in competitions.</p>
+        </section>
+        <section id="info">
+            <h2>Information</h2>
+            <p>Discover educational materials, guides, and shared experiences to help your team grow and innovate.</p>
+        </section>
+        <section id="rankings">
+            <h2>Team Rankings</h2>
+            <table id="rankingsTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <h3>Submit Team Score</h3>
+            <table>
+                <tr>
+                    <td>Team Name:</td>
+                    <td><input type="text" id="rankingTeamName" placeholder="Enter team name" required></td>
+                </tr>
+                <tr>
+                    <td>Score:</td>
+                    <td><input type="number" id="teamScore" placeholder="Enter team score" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="submitScore">Submit Score</button></td>
+                </tr>
+            </table>
+        </section>
+        <section id="teams">
+            <h2>Teams</h2>
+            <table id="teamsTable">
+                <thead>
+                    <tr>
+                        <th>Team Name</th>
+                        <th>Team Number</th>
+                        <th>Organization</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <h3>Register Team</h3>
+            <table>
+                <tr>
+                    <td>Team Name:</td>
+                    <td><input type="text" id="teamName" placeholder="Enter team name" required></td>
+                </tr>
+                <tr>
+                    <td>Team Number:</td>
+                    <td><input type="number" id="teamNumber" placeholder="Enter team number" required></td>
+                </tr>
+                <tr>
+                    <td>Organization:</td>
+                    <td><input type="text" id="organization" placeholder="Enter organization name" required></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" id="city" placeholder="Enter city" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="registerTeam">Register Team</button></td>
+                </tr>
+            </table>
+        </section>
+        <section id="events">
+            <h2>Events</h2>
+            <table id="eventsTable">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <h3>Add Event</h3>
+            <table>
+                <tr>
+                    <td>Event Name:</td>
+                    <td><input type="text" id="eventName" placeholder="Enter event name" required></td>
+                </tr>
+                <tr>
+                    <td>Date:</td>
+                    <td><input type="date" id="eventDate" required></td>
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td><input type="text" id="eventLocation" placeholder="Enter event location" required></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="text" id="eventDescription" placeholder="Enter event description" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="addEvent">Add Event</button></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <script>
+        const rankingsTableBody = document.querySelector('#rankingsTable tbody');
+        const teamsTableBody = document.querySelector('#teamsTable tbody');
+        const eventsTableBody = document.querySelector('#eventsTable tbody');
+
+        let rankings = [];
+        let teams = [];
+        let events = [];
+
+        // Add ranking
+        document.getElementById('submitScore').addEventListener('click', () => {
+            const teamName = document.getElementById('rankingTeamName').value;
+            const teamScore = parseInt(document.getElementById('teamScore').value);
+            rankings.push({ name: teamName, score: teamScore });
+            rankings.sort((a, b) => b.score - a.score);
+            renderRankings();
+        });
+
+        function renderRankings() {
+            rankingsTableBody.innerHTML = '';
+            rankings.forEach((team, index) => {
+                const row = `<tr>
+                    <td>${index + 1}</td>
+                    <td>${team.name}</td>
+                    <td>${team.score}</td>
+                </tr>`;
+                rankingsTableBody.innerHTML += row;
+            });
+        }
+
+        // Register team
+        document.getElementById('registerTeam').addEventListener('click', () => {
+            const teamName = document.getElementById('teamName').value;
+            const teamNumber = document.getElementById('teamNumber').value;
+            const organization = document.getElementById('organization').value;
+            const city = document.getElementById('city').value;
+            teams.push({ name: teamName, number: teamNumber, organization, city });
+            renderTeams();
+        });
+
+        function renderTeams() {
+            teamsTableBody.innerHTML = '';
+            teams.forEach(team => {
+                const row = `<tr>
+                    <td>${team.name}</td>
+                    <td>${team.number}</td>
+                    <td>${team.organization}</td>
+                    <td>${team.city}</td>
+                </tr>`;
+                teamsTableBody.innerHTML += row;
+            });
+        }
+
+        // Add event
+        document.getElementById('addEvent').addEventListener('click', () => {
+            const eventName = document.getElementById('eventName').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const eventLocation = document.getElementById('eventLocation').value;
+            const eventDescription = document.getElementById('eventDescription').value;
+            events.push({ name: eventName, date: eventDate, location: eventLocation, description: eventDescription });
+            renderEvents();
+        });
+
+        function renderEvents() {
+            eventsTableBody.innerHTML = '';
+            events.forEach(event => {
+                const row = `<tr>
+                    <td>${event.name}</td>
+                    <td>${event.date}</td>
+                    <td>${event.location}</td>
+                    <td>${event.description}</td>
+                </tr>`;
+                eventsTableBody.innerHTML += row;
+            });
+        }
+    </script>
+</body>
+</html>
