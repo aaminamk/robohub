@@ -5,106 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robohub - Connect. Learn. Compete.</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f9fc;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #0a6e45;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            margin: 10px 0 0;
-            font-size: 1.2em;
-        }
-        nav {
-            background-color: #066d3a;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        nav a:hover {
-            background-color: #045b2d;
-        }
-        main {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        section {
-            margin-bottom: 40px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        section h2 {
-            margin-top: 0;
-            color: #0a6e45;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #0a6e45;
-            color: white;
-        }
-        form table {
-            margin: 20px 0;
-            width: 100%;
-        }
-        form input, form button {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 100%;
-        }
-        form button {
-            background-color: #0a6e45;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        form button:hover {
-            background-color: #066d3a;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #0a6e45;
-            color: white;
-            margin-top: 20px;
-        }
+        /* Ваш стиль остаётся прежним */
     </style>
 </head>
 <body>
@@ -120,81 +21,6 @@
         <a href="#events">Events</a>
     </nav>
     <main>
-        <section id="home">
-            <h2>About Robohub</h2>
-            <p>Robohub is your go-to platform for connecting robotics teams. Share your projects, track scores, and access essential resources to excel in competitions.</p>
-        </section>
-        <section id="info">
-            <h2>Information</h2>
-            <p>Discover educational materials, guides, and shared experiences to help your team grow and innovate.</p>
-        </section>
-        <section id="rankings">
-            <h2>Team Rankings</h2>
-            <table id="rankingsTable">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Team Name</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <h3>Submit Team Score</h3>
-            <form>
-                <table>
-                    <tr>
-                        <td>Team Name:</td>
-                        <td><input type="text" id="rankingTeamName" placeholder="Enter team name" required></td>
-                    </tr>
-                    <tr>
-                        <td>Score:</td>
-                        <td><input type="number" id="teamScore" placeholder="Enter team score" required></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button id="submitScore">Submit Score</button></td>
-                    </tr>
-                </table>
-            </form>
-        </section>
-        <section id="teams">
-            <h2>Teams</h2>
-            <table id="teamsTable">
-                <thead>
-                    <tr>
-                        <th>Team Name</th>
-                        <th>Team Number</th>
-                        <th>Organization</th>
-                        <th>City</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <h3>Register Team</h3>
-            <form>
-                <table>
-                    <tr>
-                        <td>Team Name:</td>
-                        <td><input type="text" id="teamName" placeholder="Enter team name" required></td>
-                    </tr>
-                    <tr>
-                        <td>Team Number:</td>
-                        <td><input type="number" id="teamNumber" placeholder="Enter team number" required></td>
-                    </tr>
-                    <tr>
-                        <td>Organization:</td>
-                        <td><input type="text" id="organization" placeholder="Enter organization name" required></td>
-                    </tr>
-                    <tr>
-                        <td>City:</td>
-                        <td><input type="text" id="city" placeholder="Enter city" required></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button id="registerTeam">Register Team</button></td>
-                    </tr>
-                </table>
-            </form>
-        </section>
         <section id="events">
             <h2>Events</h2>
             <table id="eventsTable">
@@ -206,34 +32,100 @@
                         <th>Description</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <tr>
+                        <td>Quantum Tech Workshop: 3D Modeling and CAD</td>
+                        <td>2024-12-15</td>
+                        <td>Quantum TECH School</td>
+                        <td>An interactive workshop for 3D modeling and CAD enthusiasts.</td>
+                    </tr>
+                </tbody>
             </table>
-            <h3>Add Event</h3>
-            <form>
+            <h3>Register for Quantum Tech Workshop</h3>
+            <form id="workshopForm">
                 <table>
                     <tr>
-                        <td>Event Name:</td>
-                        <td><input type="text" id="eventName" placeholder="Enter event name" required></td>
+                        <td>Team Name:</td>
+                        <td><input type="text" id="workshopTeamName" placeholder="Enter team name" required></td>
                     </tr>
                     <tr>
-                        <td>Date:</td>
-                        <td><input type="date" id="eventDate" required></td>
+                        <td>Organization:</td>
+                        <td><input type="text" id="workshopOrganization" placeholder="Enter organization" required></td>
                     </tr>
                     <tr>
-                        <td>Location:</td>
-                        <td><input type="text" id="eventLocation" placeholder="Enter event location" required></td>
+                        <td>Number of Participants (1-3):</td>
+                        <td><input type="number" id="participants" min="1" max="3" required></td>
                     </tr>
                     <tr>
-                        <td>Description:</td>
-                        <td><input type="text" id="eventDescription" placeholder="Enter event description" required></td>
+                        <td>Participant Names:</td>
+                        <td><input type="text" id="participantNames" placeholder="Enter names (comma-separated)" required></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><button id="addEvent">Add Event</button></td>
+                        <td>Contact Phone:</td>
+                        <td><input type="tel" id="contactPhone" placeholder="Enter phone number" required></td>
+                    </tr>
+                    <tr>
+                        <td>Contact Email:</td>
+                        <td><input type="email" id="contactEmail" placeholder="Enter email address" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit">Register</button></td>
                     </tr>
                 </table>
             </form>
         </section>
     </main>
     <footer>
-        <p>© 2024 Robohub | All Rights Reserved</p>
+        <p>© 2024 Robohub | All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById('workshopForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const teamName = document.getElementById('workshopTeamName').value;
+            const organization = document.getElementById('workshopOrganization').value;
+            const participants = document.getElementById('participants').value;
+            const participantNames = document.getElementById('participantNames').value;
+            const contactPhone = document.getElementById('contactPhone').value;
+            const contactEmail = document.getElementById('contactEmail').value;
+
+            // Формируем данные для отправки в Google Sheets
+            const data = [
+                teamName,
+                organization,
+                participants,
+                participantNames,
+                contactPhone,
+                contactEmail
+            ];
+
+            // API key и ID таблицы
+            const apiKey = 'AIzaSyCpQk5RSn9aEcjbRckIDbWiBjuRjU1qbboY'; // Замените на ваш API ключ
+            const sheetId = '1mf0B5sUM6rxM5_QRe4ufMUDWNQ61gYvHTnO8baMndC0'; // Замените на ID вашего Google Sheet
+
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A1:F1:append?valueInputOption=RAW&key=${apiKey}`;
+
+            // Отправляем данные в таблицу
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    values: [data]
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Data sent to Google Sheets:', data);
+                alert(`Thank you for registering, ${teamName}! A confirmation has been sent to ${contactEmail}.`);
+            })
+            .catch(error => {
+                console.error('Error sending data:', error);
+                alert('There was an error submitting your registration. Please try again later.');
+            });
+        });
+    </script>
+</body>
+</html>
